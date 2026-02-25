@@ -2904,7 +2904,7 @@
                 await gatewayInvoke('cron', { action: 'list' }, { gatewayUrl: url, token, timeout: 3000 });
                 return true;
             } catch (e) {
-                if (e.status === 401) return true;
+                if (e.status === 401 || !e.status) return true;
                 return false;
             }
         }
